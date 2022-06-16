@@ -12,7 +12,7 @@ const remainingGuesses = document.querySelector(".remaining");
 //The span inside the paragraph where the remaining guesses will display.
 const spanGuesses = document.querySelector(".remaining span");
 //The empty paragraph where messages will appear when the player guesses a letter.
-const messages = document.querySelector(".message");
+const message = document.querySelector(".message");
 //The hidden button that will appear prompting the player to play again.
 const buttonPlayAgain = document.querySelector(".play-again");
 
@@ -31,54 +31,75 @@ const placeHolder = function(word){
 
 placeHolder(word);
 
+//Event listening for a click of the button.
 buttonGuess.addEventListener("click", function (e) {
     e.preventDefault();
-    messages.innerText = "";
+    message.innerText = "";
     const guess = letterInput.value;    
-    const inputHolder = checkInput(guess);
+    const goodGuess = checkInput(guess);
 
-    if (inputHolder) {
-        makeGuess(guess);
+    if (goodGuess) {
+    makeGuess(guess);
     }
     letterInput.value = "";
 });
 
-//function to check the validity of the input.
+//function to check the validity of the input and displays a comment.
 const checkInput = function(input){
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
-        messages.innerText = "You need to enter a letter! There are no spaces.";
+        message.innerText = "You need to enter a letter! There are no spaces.";
     } else if (input.length > 1) {
-         messages.innerText = "Please enter only one letter, and try again.";
+         message.innerText = "Please enter only one letter, and try again.";
         } else if (!input.match(acceptedLetter)){
-            messages.innerText = "Please enter a letter from A to Z. Numbers and symboles are not allowed.";
+            message.innerText = "Please enter a letter from A to Z. Numbers and symboles are not allowed.";
             } else {
                  return input;
                 }  
 };
 
+//Capitalizes the guessed letter and checks to see if it has already been guessed.
 const makeGuess = function (guess){
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)) {
-        messages.innerText = "You already guessed that letter. Try again.";
+        message.innerText = "You already guessed that letter. Try again.";
     } else {
         guessedLetters.push(guess);
         console.log(guessedLetters);
+        displayGuessedLetters();
+        updateWordProgress(guessedLetters);
     }
 };
 
+//saves and displays the guessed letters.
+const displayGuessedLetters = function (){
+    guessedLettersElement.innerHTML = "";
+    for (const letter of guessedLetters) {
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLettersElement.append(li);
+    }
+};
 
+//Replaces the dots with correct letters.
+const updateWordProgress = function (guessedLetters) {
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    const revealTheWord = [];
+    for (const letter of wordArray) {
+        if (guessedLetters.includes(letter)) {
+        revealTheWord.push(letter.toUpperCase());
+    } else {
+      revealTheWord.push("●");
+    }
+    }
+    wordProgress.innerText = revealTheWord.join("");
+    checkIfWon();
+};
 
-
-
-
-
-  
-//const getData = async function () {
-//    const res = await fetch(
-//      "https://quote-garden.herokuapp.com/api/v3/quotes?author=beyonce"
-//    );
-//    const data = await res.json();
-//    console.log(data);
-// };
-// getData();
+const checkIfWon = function () {
+    if (word.toUpperCase() === wordProgress.innerText) {
+        message.classList.add("win");
+        message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
+    }
+};
