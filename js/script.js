@@ -66,6 +66,7 @@ playAgainButton.addEventListener("click", function (e) {
     guessedLetters = [];
     guessedLettersElement.innerHTML = "";
     getWord();
+    
   });
 
 //Does the input value meet the criteria?
