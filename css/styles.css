@@ -50,6 +50,7 @@ h1 {
 }
 
 .highlight {
+  text-transform: uppercase;
   padding: 0.25em;
   background: #ffe2d6;
   font-size: 1em;
