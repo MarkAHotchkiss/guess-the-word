@@ -7,7 +7,7 @@ const remainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 const guessForm = document.querySelector(".letter");
-let remainingGuesses = 8;
+let remainingGuesses = 10;
 let word = "";
 let guessedLetters = [];
 
@@ -61,12 +61,11 @@ playAgainButton.addEventListener("click", function (e) {
     playAgainButton.classList.add("hide");
     message.classList.remove("win");
     message.innerText = "";
-    remainingGuesses = 8;
+    remainingGuesses = 10;
     remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     guessedLetters = [];
     guessedLettersElement.innerHTML = "";
     getWord();
-    
   });
 
 //Does the input value meet the criteria?
