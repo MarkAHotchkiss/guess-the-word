@@ -154,7 +154,7 @@ const checkIfWin = function () {
     message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
     body.classList.add("celebrate");
     startOver();
-}
+  }
 };
 
 const startOver = function(){
