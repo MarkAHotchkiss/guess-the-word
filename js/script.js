@@ -9,7 +9,7 @@ const playAgainButton = document.querySelector(".play-again");
 const guessForm = document.querySelector(".letter");
 const body = document.querySelector("body");
 
-let remainingGuesses = 10;
+let remainingGuesses = 8;
 let word = "";
 let guessedLetters = [];
 
@@ -64,7 +64,7 @@ playAgainButton.addEventListener("click", function (e) {
     message.classList.remove("win");
     body.classList.remove("celebrate");
     message.innerText = "";
-    remainingGuesses = 10;
+    remainingGuesses = 8;
     remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     guessedLetters = [];
     guessedLettersElement.innerHTML = "";
