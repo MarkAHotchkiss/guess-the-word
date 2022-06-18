@@ -117,6 +117,7 @@ input:focus {
 
 .select-level {
   text-align: center;
+  text-transform: uppercase;
 }
 
 .guess,
