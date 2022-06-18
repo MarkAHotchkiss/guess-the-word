@@ -8,8 +8,11 @@ const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 const guessForm = document.querySelector(".letter");
 const body = document.querySelector("body");
+const easyButton = document.querySelector(".easy");
+const mediumButton = document.querySelector(".medium");
+const hardButton = document.querySelector(".hard");
 
-let remainingGuesses = 8;
+let remainingGuesses = 10;
 let word = "";
 let guessedLetters = [];
 
@@ -64,7 +67,55 @@ playAgainButton.addEventListener("click", function (e) {
     message.classList.remove("win");
     body.classList.remove("celebrate");
     message.innerText = "";
-    remainingGuesses = 8;
+    remainingGuesses = 10;
+    remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
+    guessedLetters = [];
+    guessedLettersElement.innerHTML = "";
+    getWord();
+  });
+
+  easyButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    guessLetterButton.classList.remove("hide");
+    guessedLettersElement.classList.remove("hide");
+    guessForm.classList.remove("hide");
+    playAgainButton.classList.add("hide");
+    message.classList.remove("win");
+    body.classList.remove("celebrate");
+    message.innerText = "";
+    remainingGuesses = 10;
+    remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
+    guessedLetters = [];
+    guessedLettersElement.innerHTML = "";
+    getWord();
+  });
+
+  mediumButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    guessLetterButton.classList.remove("hide");
+    guessedLettersElement.classList.remove("hide");
+    guessForm.classList.remove("hide");
+    playAgainButton.classList.add("hide");
+    message.classList.remove("win");
+    body.classList.remove("celebrate");
+    message.innerText = "";
+    remainingGuesses = 7;
+    remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
+    guessedLetters = [];
+    guessedLettersElement.innerHTML = "";
+    getWord();
+  });
+
+hardButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    guessLetterButton.classList.remove("hide");
+    guessedLettersElement.classList.remove("hide");
+    guessForm.classList.remove("hide");
+    playAgainButton.classList.add("hide");
+    message.classList.remove("win");
+    body.classList.remove("celebrate");
+    message.innerText = "";
+    remainingGuesses = 4;
     remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     guessedLetters = [];
     guessedLettersElement.innerHTML = "";
@@ -155,7 +206,7 @@ const checkIfWin = function () {
     message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
     body.classList.add("celebrate");
     startOver();
-  }
+}
 };
 
 const startOver = function(){
@@ -164,4 +215,3 @@ const startOver = function(){
     guessForm.classList.add("hide");
     playAgainButton.classList.remove("hide");
 };
-
