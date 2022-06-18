@@ -115,6 +115,10 @@ input:focus {
   border: 4px solid #28bdbd;
 }
 
+.select-level {
+  text-align: center;
+}
+
 .guess,
 .play-again {
   padding: 1em 3em;
@@ -129,6 +133,21 @@ input:focus {
   cursor: pointer;
 }
 
+.easy,
+.medium,
+.hard {
+  padding: .5em 1.5em;
+  border-radius: 25px;
+  margin-top: .5em;
+  color: rgb(250, 248, 248);
+  background: #ff8d5c;
+  font-size: .75em;
+  align-self: center;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
 .guess:active,
 .play-again:active,
 .guess:focus,
@@ -136,9 +155,24 @@ input:focus {
 .guess:hover,
 .play-again:hover {
   outline: 0;
-  transform: scale(0.98);
+  transform: scale(1.2);
   background: brightness(0.3);
-  color: white;
+  color: rgb(224, 89, 89);
+}
+
+.easy:active,
+.medium:active,
+.hard:active,
+.easy:focus,
+.medium:focus,
+.hard:focus,
+.easy:hover,
+.medium:hover,
+.hard:hover {
+  outline: 0;
+  transform: scale(1.2);
+  background: brightness(0.3);
+  color: rgb(224, 89, 89);
 }
 
 /* animatied background */
