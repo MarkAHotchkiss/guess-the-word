@@ -8,9 +8,9 @@ const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 const guessForm = document.querySelector(".letter");
 const body = document.querySelector("body");
-const easyButton = document.querySelector(".easy");
-const mediumButton = document.querySelector(".medium");
-const hardButton = document.querySelector(".hard");
+const easyLevelButton = document.querySelector(".easy");
+const mediumLevelButton = document.querySelector(".medium");
+const hardLevelButton = document.querySelector(".hard");
 
 let remainingGuesses = 10;
 let word = "";
@@ -74,7 +74,7 @@ playAgainButton.addEventListener("click", function (e) {
     getWord();
   });
 
-  easyButton.addEventListener("click", function (e) {
+  easyLevelButton.addEventListener("click", function (e) {
     e.preventDefault();
     guessLetterButton.classList.remove("hide");
     guessedLettersElement.classList.remove("hide");
@@ -90,7 +90,7 @@ playAgainButton.addEventListener("click", function (e) {
     getWord();
   });
 
-  mediumButton.addEventListener("click", function (e) {
+  mediumLevelButton.addEventListener("click", function (e) {
     e.preventDefault();
     guessLetterButton.classList.remove("hide");
     guessedLettersElement.classList.remove("hide");
@@ -106,7 +106,7 @@ playAgainButton.addEventListener("click", function (e) {
     getWord();
   });
 
-hardButton.addEventListener("click", function (e) {
+hardLevelButton.addEventListener("click", function (e) {
     e.preventDefault();
     guessLetterButton.classList.remove("hide");
     guessedLettersElement.classList.remove("hide");

@@ -117,7 +117,6 @@ input:focus {
 
 .select-level {
   text-align: center;
-  text-transform: uppercase;
 }
 
 .guess,
@@ -140,7 +139,7 @@ input:focus {
   padding: .5em 1.5em;
   border-radius: 25px;
   margin-top: .5em;
-  color: rgb(250, 248, 248);
+  color: rgb(250, 233, 233);
   background: #ff8d5c;
   font-size: .75em;
   align-self: center;
@@ -171,7 +170,7 @@ input:focus {
 .medium:hover,
 .hard:hover {
   outline: 0;
-  transform: scale(1.2);
+  transform: scale(1.1);
   background: brightness(0.3);
   color: rgb(224, 89, 89);
 }
