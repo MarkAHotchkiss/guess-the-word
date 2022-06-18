@@ -18,6 +18,12 @@ body {
   color: #305050;
 }
 
+body.celebrate {
+  background: linear-gradient(-45deg, #fa0509, #f20d96, #308ecf, #1ed5e1);
+  background-size: 400% 400%;
+  animation: gradient 6s ease infinite;
+}
+
 .logo {
   width: 70%;
   max-width: 484px;

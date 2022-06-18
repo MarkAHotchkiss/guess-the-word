@@ -7,6 +7,8 @@ const remainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 const guessForm = document.querySelector(".letter");
+const body = document.querySelector("body");
+
 let remainingGuesses = 10;
 let word = "";
 let guessedLetters = [];
@@ -150,6 +152,7 @@ const checkIfWin = function () {
   if (word.toUpperCase() === wordInProgress.innerText) {
     message.classList.add("win");
     message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
+    body.classList.add("celebrate");
     startOver();
 }
 };
