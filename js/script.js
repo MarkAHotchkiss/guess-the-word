@@ -62,6 +62,7 @@ playAgainButton.addEventListener("click", function (e) {
     guessForm.classList.remove("hide");
     playAgainButton.classList.add("hide");
     message.classList.remove("win");
+    body.classList.remove("celebrate");
     message.innerText = "";
     remainingGuesses = 10;
     remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
