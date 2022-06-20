@@ -184,6 +184,7 @@ input:focus {
 }
 
 .credits {
+  display: inline;
   text-align: center;
   font-size: .5em;
 }
