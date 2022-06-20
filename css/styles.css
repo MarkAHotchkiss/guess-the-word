@@ -183,6 +183,11 @@ input:focus {
   animation: gradient 2s ease infinite;
 }
 
+.credits {
+  text-align: center;
+  font-size: .5em;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
